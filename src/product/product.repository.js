@@ -5,7 +5,11 @@
 const prisma = require("../db");
 
 const findProducts = async () => {
-  const products = await prisma.product.findMany();
+  const products = await prisma.product.findMany({
+    orderBy: {
+      id: 'asc',
+    },
+  });
 
   return products;
 };
